@@ -1,0 +1,23 @@
+{
+  "name": "API",
+  "recipe_id": {
+    "zip_name": "api.recipe.json",
+    "name": "API",
+    "folder": ""
+  },
+  "api_group_id": {
+    "zip_name": "api.api_group.json",
+    "name": "API",
+    "folder": ""
+  },
+  "method": "GET",
+  "path": "api",
+  "legacy": false,
+  "validate_request": false,
+  "use_cache": false,
+  "cache_ttl": 0,
+  "cache_keys": [
+
+  ],
+  "cache_size_limit": 10240
+}

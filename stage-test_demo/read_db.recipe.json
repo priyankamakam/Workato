@@ -1,0 +1,196 @@
+{
+  "name": "Read_DB",
+  "description": "",
+  "version": 2,
+  "private": false,
+  "concurrency": 1,
+  "code": {
+    "number": 0,
+    "provider": "workato_db_table",
+    "name": "updated_records_realtime",
+    "as": "3730a916",
+    "keyword": "trigger",
+    "dynamicPickListSelection": {
+      "table_id": "Employees"
+    },
+    "input": {
+      "table_id": {
+        "zip_name": "employees.workato_db_table.json",
+        "name": "Employees",
+        "folder": ""
+      }
+    },
+    "extended_output_schema": [
+      {
+        "label": "Record",
+        "name": "record",
+        "properties": [
+          {
+            "control_type": "text",
+            "label": "Record ID",
+            "type": "string",
+            "name": "11fbe9a6_a16d_4d7e_86ea_afe42ec03005"
+          },
+          {
+            "control_type": "text",
+            "label": "Name",
+            "type": "string",
+            "name": "8703f1af_1dc6_4c4d_81c6_6d907ef31304"
+          },
+          {
+            "control_type": "number",
+            "label": "emp id",
+            "parse_output": "integer_conversion",
+            "type": "integer",
+            "name": "0890278c_6a0a_4c0f_8a62_38900ea6a502"
+          },
+          {
+            "control_type": "date_time",
+            "label": "Created at",
+            "render_input": "date_time_conversion",
+            "parse_output": "date_time_conversion",
+            "type": "date_time",
+            "name": "a5612739_5401_4ae7_bd07_782c1a6fb2d1"
+          },
+          {
+            "control_type": "date_time",
+            "label": "Updated at",
+            "render_input": "date_time_conversion",
+            "parse_output": "date_time_conversion",
+            "type": "date_time",
+            "name": "61aae604_a95e_4519_9091_bb0bf754a67f"
+          }
+        ],
+        "type": "object"
+      },
+      {
+        "label": "Old record",
+        "name": "old_record",
+        "properties": [
+          {
+            "control_type": "text",
+            "label": "Record ID",
+            "type": "string",
+            "name": "11fbe9a6_a16d_4d7e_86ea_afe42ec03005"
+          },
+          {
+            "control_type": "text",
+            "label": "Name",
+            "type": "string",
+            "name": "8703f1af_1dc6_4c4d_81c6_6d907ef31304"
+          },
+          {
+            "control_type": "number",
+            "label": "emp id",
+            "parse_output": "integer_conversion",
+            "type": "integer",
+            "name": "0890278c_6a0a_4c0f_8a62_38900ea6a502"
+          },
+          {
+            "control_type": "date_time",
+            "label": "Created at",
+            "render_input": "date_time_conversion",
+            "parse_output": "date_time_conversion",
+            "type": "date_time",
+            "name": "a5612739_5401_4ae7_bd07_782c1a6fb2d1"
+          },
+          {
+            "control_type": "date_time",
+            "label": "Updated at",
+            "render_input": "date_time_conversion",
+            "parse_output": "date_time_conversion",
+            "type": "date_time",
+            "name": "61aae604_a95e_4519_9091_bb0bf754a67f"
+          }
+        ],
+        "type": "object"
+      }
+    ],
+    "block": [
+      {
+        "number": 1,
+        "keyword": "if",
+        "input": {
+          "type": "compound",
+          "operand": "and",
+          "conditions": [
+            {
+              "operand": "contains",
+              "lhs": "#{_dp('{\"pill_type\":\"output\",\"provider\":\"workato_db_table\",\"line\":\"3730a916\",\"path\":[\"record\",\"8703f1af_1dc6_4c4d_81c6_6d907ef31304\"]}')}",
+              "rhs": "Priyanka",
+              "uuid": "62b43bc6-c94b-4c8a-b408-cc045676de0c"
+            }
+          ]
+        },
+        "block": [
+          {
+            "number": 2,
+            "provider": "logger",
+            "name": "log_message",
+            "as": "f5e43826",
+            "keyword": "action",
+            "input": {
+              "user_logs_enabled": "false",
+              "message": "Priyanka Record is modified"
+            },
+            "extended_input_schema": [
+              {
+                "control_type": "switch",
+                "default": false,
+                "disable_formula": true,
+                "extends_schema": true,
+                "hint": "                Send a copy of the message to Workato logs.\n                <a href=\"https://docs.workato.com/features/logging-service.html\" target=\"_blank\" class=\"ng-scope\">\n                  Learn more\n                </a>\n",
+                "label": "Send to Workato log service",
+                "name": "user_logs_enabled",
+                "optional": true,
+                "type": "string"
+              }
+            ],
+            "uuid": "e56ccd98-b634-4d91-a351-6512d8557d78"
+          }
+        ],
+        "uuid": "81c896ae-39c8-469e-bb11-1945000f444b"
+      },
+      {
+        "number": 3,
+        "provider": "logger",
+        "name": "log_message",
+        "as": "6d88b553",
+        "keyword": "action",
+        "input": {
+          "user_logs_enabled": "false",
+          "message": "#{_dp('{\"pill_type\":\"output\",\"provider\":\"workato_db_table\",\"line\":\"3730a916\",\"path\":[\"old_record\",\"8703f1af_1dc6_4c4d_81c6_6d907ef31304\"]}')}"
+        },
+        "extended_input_schema": [
+          {
+            "control_type": "switch",
+            "default": false,
+            "disable_formula": true,
+            "extends_schema": true,
+            "hint": "                Send a copy of the message to Workato logs.\n                <a href=\"https://docs.workato.com/features/logging-service.html\" target=\"_blank\" class=\"ng-scope\">\n                  Learn more\n                </a>\n",
+            "label": "Send to Workato log service",
+            "name": "user_logs_enabled",
+            "optional": true,
+            "type": "string"
+          }
+        ],
+        "uuid": "565ef706-3502-4886-91c9-8156af2b3725"
+      }
+    ],
+    "uuid": "fe59e3c2-f18f-4ed2-96df-02549202a4eb"
+  },
+  "config": [
+    {
+      "keyword": "application",
+      "provider": "workato_db_table",
+      "skip_validation": false,
+      "account_id": null
+    },
+    {
+      "keyword": "application",
+      "provider": "logger",
+      "skip_validation": false,
+      "account_id": null
+    }
+  ]
+}
