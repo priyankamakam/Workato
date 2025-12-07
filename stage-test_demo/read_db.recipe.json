@@ -2,7 +2,7 @@
   "name": "Read_DB",
   "description": "",
   "version": 2,
-  "private": false,
+  "private": true,
   "concurrency": 1,
   "code": {
     "number": 0,
